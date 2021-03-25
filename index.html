@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>upd погода</title>
+    <link rel="stylesheet" href="index.css"/>
+    <style>
+      .root {
+        min-height: 100px;
+        background-color: #ffddff;
+        margin: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .some_button {
+        /* max-width: 100px; */
+        background-color: #ffbbff;
+        height: 30px;
+      }
+      .some_button_little {
+        width: 25px;
+        background-color: #ffbbff;
+        height: 25px;
+      }
+      .weather__card {
+        margin: 10px;
+        width: 45%;
+        background-color: #ffaaff;
+      }
+      .weather__list_cards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+      }
+      ul {
+        padding: 0px;
+      }
+      li {
+        list-style-type: none;
+        padding: 0px;
+      }
+      .card__header {
+        background-color: #ff00ff;
+        margin: 5px;
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .card__header > div > img {
+        width: 20px;
+      }
+      .card__body {
+        background-color: #ff00ff;
+        margin: 5px;
+      }
+
+      .card__params > li {
+        background-color: #33ffff;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;
+        padding: 5px;
+      }
+
+      .current_weather_main {
+        align-items: center;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+      .current_weather_main > span {
+        font-size: 30pt;
+        margin: 20px;
+      }
+      .current_weather_main > img {
+        width: 120px;
+      }
+      #add_city_button {
+        display: flex;
+        margin-right: 18px;
+      }
+
+      .img__loading {
+        width: 20px;
+        display: none;
+      }
+
+      @media only screen and (max-width: 500px) {
+        .weather__card {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="root" style="">
+         <h1>Text h1</h1>
+         <div class="some_button">Button desktop upd</div>
+         <div class="some_button">Button mobile upd</div>
+      </div>
+
+      <div class="root">
+        <div class="weather__card">
+          <h3>City name</h3>
+          <div class="current_weather_main">
+            <img src="img/weather_card_icon.png"/>
+            <span>temp</span>
+          </div>
+        </div>
+        <div class="card__body weather__card">
+          <ul class="card__params">
+            <li>
+              <span>param name</span>
+              <span>param value</span>
+              <img class="img__loading" src="img/loading.gif"/>
+            </li>
+            <li>
+              <span>param name</span>
+              <span>param value</span>
+              <img class="img__loading" src="img/loading.gif"/>
+            </li>
+            <li>
+              <span>param name</span>
+              <span>param value</span>
+              <img class="img__loading" src="img/loading.gif"/>
+            </li>
+            <li>
+              <span>param name</span>
+              <span>param value</span>
+              <img class="img__loading" src="img/loading.gif"/>
+            </li>
+            <li>
+              <span>param name</span>
+              <span>param value</span>
+              <img class="img__loading" src="img/loading.gif"/>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="root" style="">
+        <h2>Text h1</h2>
+        <div id="add_city_button" class="some_button">
+          <input type="text" placeholder="City name..." />
+          <div class="some_button_little">+</div>
+        </div>
+      </div>
+
+      <div class="root" style="justify-content: space-around">
+
+        <ul class="weather__list_cards">
+
+          <li class="weather__card">
+            <div class="card__header">
+              <h3>City name</h3>
+              <div>
+                <img src="img/weather_card_icon.png"/>
+                <text>temp</text>
+              </div>
+              <div class="some_button_little">x</div>
+            </div>
+            <div class="card__body">
+              <ul class="card__params">
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="weather__card">
+            <div class="card__header">
+              <h3>City name</h3>
+              <div>
+                <img src="img/weather_card_icon.png"/>
+                <text>temp</text>
+              </div>
+              <div class="some_button_little">x</div>
+            </div>
+            <div class="card__body">
+              <ul class="card__params">
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="weather__card">
+            <div class="card__header">
+              <h3>City name</h3>
+              <div>
+                <img src="img/weather_card_icon.png"/>
+                <text>temp</text>
+              </div>
+              <div class="some_button_little">x</div>
+            </div>
+            <div class="card__body">
+              <ul class="card__params">
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </main>
+  </body>
+</html>
