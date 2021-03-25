@@ -1,0 +1,18 @@
+body {
+  background-color: #ffefff;
+  max-width: 960px;
+  margin: auto;
+}
+
+.root {
+  min-height: 100px;
+  background-color: #ffddff;
+  margin: 30px;
+}
+
+.flex_between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}

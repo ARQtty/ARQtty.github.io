@@ -3,19 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>upd погода</title>
-    <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/weather_cards.css"/>
     <style>
-      .root {
-        min-height: 100px;
-        background-color: #ffddff;
-        margin: 30px;
+      #add_city_button {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
+        margin-right: 18px;
+      }
+      .img__loading {
+        width: 20px;
+        display: none;
       }
       .some_button {
-        /* max-width: 100px; */
         background-color: #ffbbff;
         height: 30px;
       }
@@ -23,71 +22,6 @@
         width: 25px;
         background-color: #ffbbff;
         height: 25px;
-      }
-      .weather__card {
-        margin: 10px;
-        width: 45%;
-        background-color: #ffaaff;
-      }
-      .weather__list_cards {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        width: 100%;
-      }
-      ul {
-        padding: 0px;
-      }
-      li {
-        list-style-type: none;
-        padding: 0px;
-      }
-      .card__header {
-        background-color: #ff00ff;
-        margin: 5px;
-        padding: 5px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .card__header > div > img {
-        width: 20px;
-      }
-      .card__body {
-        background-color: #ff00ff;
-        margin: 5px;
-      }
-
-      .card__params > li {
-        background-color: #33ffff;
-        display: flex;
-        justify-content: space-between;
-        margin-top: 5px;
-        padding: 5px;
-      }
-
-      .current_weather_main {
-        align-items: center;
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-      }
-      .current_weather_main > span {
-        font-size: 30pt;
-        margin: 20px;
-      }
-      .current_weather_main > img {
-        width: 120px;
-      }
-      #add_city_button {
-        display: flex;
-        margin-right: 18px;
-      }
-
-      .img__loading {
-        width: 20px;
-        display: none;
       }
 
       @media only screen and (max-width: 500px) {
@@ -99,16 +33,16 @@
   </head>
   <body>
     <header>
-      <div class="root" style="">
+      <div class="root flex_between" style="">
          <h1>Text h1</h1>
          <div class="some_button">Button desktop upd</div>
          <div class="some_button">Button mobile upd</div>
       </div>
 
-      <div class="root">
+      <div class="root flex_between">
         <div class="weather__card">
           <h3>City name</h3>
-          <div class="current_weather_main">
+          <div class="current_weather_main flex_between">
             <img src="img/weather_card_icon.png"/>
             <span>temp</span>
           </div>
@@ -146,7 +80,7 @@
     </header>
 
     <main>
-      <div class="root" style="">
+      <div class="root flex_between" style="">
         <h2>Text h1</h2>
         <div id="add_city_button" class="some_button">
           <input type="text" placeholder="City name..." />
@@ -154,12 +88,12 @@
         </div>
       </div>
 
-      <div class="root" style="justify-content: space-around">
+      <div class="root flex_between" style="justify-content: space-around">
 
-        <ul class="weather__list_cards">
+        <ul class="weather__list_cards flex_between">
 
           <li class="weather__card">
-            <div class="card__header">
+            <div class="card__header flex_between">
               <h3>City name</h3>
               <div>
                 <img src="img/weather_card_icon.png"/>
@@ -199,7 +133,7 @@
           </li>
 
           <li class="weather__card">
-            <div class="card__header">
+            <div class="card__header flex_between">
               <h3>City name</h3>
               <div>
                 <img src="img/weather_card_icon.png"/>
@@ -238,7 +172,7 @@
             </div>
           </li>
           <li class="weather__card">
-            <div class="card__header">
+            <div class="card__header flex_between">
               <h3>City name</h3>
               <div>
                 <img src="img/weather_card_icon.png"/>

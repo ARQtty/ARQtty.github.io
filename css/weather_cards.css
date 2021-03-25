@@ -1,0 +1,46 @@
+.weather__card {
+  margin: 10px;
+  width: 45%;
+  background-color: #ffaaff;
+}
+.weather__list_cards {
+  width: 100%;
+}
+ul {
+  padding: 0px;
+}
+li {
+  list-style-type: none;
+  padding: 0px;
+}
+.card__header {
+  background-color: #ff00ff;
+  margin: 5px;
+  padding: 5px;
+}
+.card__header > div > img {
+  width: 20px;
+}
+.card__body {
+  background-color: #ff00ff;
+  margin: 5px;
+}
+
+.card__params > li {
+  background-color: #33ffff;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.current_weather_main {
+  justify-content: flex-start !important;
+}
+.current_weather_main > span {
+  font-size: 30pt;
+  margin: 20px;
+}
+.current_weather_main > img {
+  width: 120px;
+}
