@@ -3,6 +3,9 @@
   width: 45%;
   background-color: #ffaaff;
 }
+.card__header > h3 {
+  font-size: 16pt;
+}
 .weather__list_cards {
   width: 100%;
 }
@@ -19,11 +22,16 @@ li {
   padding: 5px;
 }
 .card__header > div > img {
-  width: 20px;
+  width: 30px;
 }
 .card__body {
   background-color: #ff00ff;
   margin: 5px;
+}
+
+.card__weather_temp {
+  display: flex;
+  align-items: center;
 }
 
 .card__params > li {

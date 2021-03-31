@@ -11,67 +11,90 @@
         margin-right: 18px;
       }
       .img__loading {
-        width: 20px;
+        width: 15px;
+        height: 15px;
         display: none;
       }
       .some_button {
         background-color: #ffbbff;
         height: 30px;
       }
-      .some_button_little {
+      .button_delete {
         width: 25px;
         background-color: #ffbbff;
         height: 25px;
+      }
+      .button_add {
+        width: 25px;
+        background-color: #ffbbff;
+        height: 25px;
+      }
+
+      .only_desktop {
+        display: block;
+      }
+      .only_mobile {
+        opacity: 0.0;
+        margin-right: 30px;
       }
 
       @media only screen and (max-width: 500px) {
         .weather__card {
           width: 100%;
         }
+        .only_mobile {
+          opacity: 1.0;
+        }
+        .only_desktop {
+          display: none;
+        }
       }
     </style>
+    <script type="text/javascript" src="js/loading.js"></script>
+    <script type="text/javascript" src="js/geo.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
   </head>
   <body>
     <header>
       <div class="root flex_between" style="">
-         <h1>Text h1</h1>
-         <div class="some_button">Button desktop upd</div>
-         <div class="some_button">Button mobile upd</div>
+         <h1>Погода здесь</h1>
+         <div class="some_button only_desktop" onclick="update_weather();">Button desktop upd</div>
+         <div class="some_button only_mobile">Button mobile upd</div>
       </div>
 
       <div class="root flex_between">
         <div class="weather__card">
           <h3>City name</h3>
           <div class="current_weather_main flex_between">
-            <img src="img/weather_card_icon.png"/>
+            <img src="img/loading.gif"/>
             <span>temp</span>
           </div>
         </div>
         <div class="card__body weather__card">
           <ul class="card__params">
             <li>
-              <span>param name</span>
-              <span>param value</span>
+              <span>Ветер</span>
+              <span></span>
               <img class="img__loading" src="img/loading.gif"/>
             </li>
             <li>
-              <span>param name</span>
-              <span>param value</span>
+              <span>Облачность</span>
+              <span></span>
               <img class="img__loading" src="img/loading.gif"/>
             </li>
             <li>
-              <span>param name</span>
-              <span>param value</span>
+              <span>Давление</span>
+              <span></span>
               <img class="img__loading" src="img/loading.gif"/>
             </li>
             <li>
-              <span>param name</span>
-              <span>param value</span>
+              <span>Влажность</span>
+              <span></span>
               <img class="img__loading" src="img/loading.gif"/>
             </li>
             <li>
-              <span>param name</span>
-              <span>param value</span>
+              <span>Координаты</span>
+              <span></span>
               <img class="img__loading" src="img/loading.gif"/>
             </li>
           </ul>
@@ -81,10 +104,10 @@
 
     <main>
       <div class="root flex_between" style="">
-        <h2>Text h1</h2>
+        <h2>Избранное</h2>
         <div id="add_city_button" class="some_button">
-          <input type="text" placeholder="City name..." />
-          <div class="some_button_little">+</div>
+          <input id="add_city_input" type="text" placeholder="City name..." />
+          <div id="add_city_button_click" class="button_add">+</div>
         </div>
       </div>
 
@@ -95,51 +118,11 @@
           <li class="weather__card">
             <div class="card__header flex_between">
               <h3>City name</h3>
-              <div>
+              <div class="card__weather_temp">
                 <img src="img/weather_card_icon.png"/>
                 <text>temp</text>
               </div>
-              <div class="some_button_little">x</div>
-            </div>
-            <div class="card__body">
-              <ul class="card__params">
-                <li>
-                  <span>param name</span>
-                  <span>param value</span>
-                  <img class="img__loading" src="img/loading.gif"/>
-                </li>
-                <li>
-                  <span>param name</span>
-                  <span>param value</span>
-                  <img class="img__loading" src="img/loading.gif"/>
-                </li>
-                <li>
-                  <span>param name</span>
-                  <span>param value</span>
-                  <img class="img__loading" src="img/loading.gif"/>
-                </li>
-                <li>
-                  <span>param name</span>
-                  <span>param value</span>
-                  <img class="img__loading" src="img/loading.gif"/>
-                </li>
-                <li>
-                  <span>param name</span>
-                  <span>param value</span>
-                  <img class="img__loading" src="img/loading.gif"/>
-                </li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="weather__card">
-            <div class="card__header flex_between">
-              <h3>City name</h3>
-              <div>
-                <img src="img/weather_card_icon.png"/>
-                <text>temp</text>
-              </div>
-              <div class="some_button_little">x</div>
+              <div class="button_delete">x</div>
             </div>
             <div class="card__body">
               <ul class="card__params">
@@ -174,11 +157,50 @@
           <li class="weather__card">
             <div class="card__header flex_between">
               <h3>City name</h3>
-              <div>
+              <div class="card__weather_temp">
                 <img src="img/weather_card_icon.png"/>
                 <text>temp</text>
               </div>
-              <div class="some_button_little">x</div>
+              <div class="button_delete">x</div>
+            </div>
+            <div class="card__body">
+              <ul class="card__params">
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+                <li>
+                  <span>param name</span>
+                  <span>param value</span>
+                  <img class="img__loading" src="img/loading.gif"/>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="weather__card">
+            <div class="card__header flex_between">
+              <h3>City name</h3>
+              <div class="card__weather_temp">
+                <img src="img/weather_card_icon.png"/>
+                <text>temp</text>
+              </div>
+              <div class="button_delete">x</div>
             </div>
             <div class="card__body">
               <ul class="card__params">

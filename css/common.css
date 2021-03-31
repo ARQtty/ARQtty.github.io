@@ -4,6 +4,27 @@ body {
   margin: auto;
 }
 
+h1 {
+  color: #697E83;
+  font-family: serif;
+  font-weight: lighter;
+  font-size: 22pt;
+}
+h2 {
+  color: #697E83;
+  font-family: serif;
+  font-weight: lighter;
+  font-size: 22pt;
+}
+
+h3 {
+  color: #697E83;
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-size: 25pt;
+  margin: 10px;
+}
+
 .root {
   min-height: 100px;
   background-color: #ffddff;
