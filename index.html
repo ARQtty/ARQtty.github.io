@@ -16,20 +16,37 @@
         display: none;
       }
       .some_button {
-        background-color: #ffbbff;
         height: 30px;
+        border: none;
+        border-radius: 5px;
+        background-color: #eee;
+        margin-right: 5px;
+        padding-left: 15px;
+      }
+      .update_all_button{
+        padding: 10px 25px;
+        background-color: #C1CCD1;
+        color: #697E83;
+        border: none;
+        border-radius: 5px;
+        font-size: 11pt;
       }
       .button_delete {
-        width: 25px;
-        background-color: #ffbbff;
-        height: 25px;
+        background-color: #6F8087;
+        border: none;
+        outline: none;
+        border-radius: 100%;
+        width: 30px;
+        height: 30px;
+        font-weight: bold;
+        color: #E4EEF1;
+        position: relative;
       }
-      .button_add {
-        width: 25px;
-        background-color: #ffbbff;
-        height: 25px;
+      .button_delete > div{
+        position: absolute;
+        top: 19%;
+        left: 38%;
       }
-
       .only_desktop {
         display: block;
       }
@@ -39,27 +56,47 @@
       }
 
       @media only screen and (max-width: 500px) {
+        h1, h2 {
+          margin-left: 5px !important;
+        }
+
+        header {
+          margin-left: 5px;
+          margin-right: 10px;
+        }
+
         .weather__card {
           width: 100%;
+          margin-left: 0px;
         }
         .only_mobile {
           opacity: 1.0;
+          font-size: 30pt;
         }
         .only_desktop {
           display: none;
+        }
+
+        #add_city_button {
+          width: 100%;
+          margin-left: 5px;
+        }
+        #add_city_input {
+          width: 86%;
         }
       }
     </style>
     <script type="text/javascript" src="js/loading.js"></script>
     <script type="text/javascript" src="js/geo.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/storage.js"></script>
   </head>
   <body>
     <header>
       <div class="root flex_between" style="">
          <h1>Погода здесь</h1>
-         <div class="some_button only_desktop" onclick="update_weather();">Button desktop upd</div>
-         <div class="some_button only_mobile">Button mobile upd</div>
+         <div class="update_all_button only_desktop" onclick="update_weather();">Обновить данные</div>
+         <div class="update_all_button only_mobile"  onclick="update_weather();">↺</div>
       </div>
 
       <div class="root flex_between">
@@ -73,27 +110,27 @@
         <div class="card__body weather__card">
           <ul class="card__params">
             <li>
-              <span>Ветер</span>
+              <span><b>Ветер</b></span>
               <span></span>
               <img class="img__loading" src="img/loading.gif"/>
             </li>
             <li>
-              <span>Облачность</span>
+              <span><b>Облачность</b></span>
               <span></span>
               <img class="img__loading" src="img/loading.gif"/>
             </li>
             <li>
-              <span>Давление</span>
+              <span><b>Давление</b></span>
               <span></span>
               <img class="img__loading" src="img/loading.gif"/>
             </li>
             <li>
-              <span>Влажность</span>
+              <span><b>Влажность</b></span>
               <span></span>
               <img class="img__loading" src="img/loading.gif"/>
             </li>
             <li>
-              <span>Координаты</span>
+              <span><b>Координаты</b></span>
               <span></span>
               <img class="img__loading" src="img/loading.gif"/>
             </li>
@@ -105,9 +142,9 @@
     <main>
       <div class="root flex_between" style="">
         <h2>Избранное</h2>
-        <div id="add_city_button" class="some_button">
-          <input id="add_city_input" type="text" placeholder="City name..." />
-          <div id="add_city_button_click" class="button_add">+</div>
+        <div id="add_city_button" >
+          <input id="add_city_input" type="text" class="some_button" placeholder="Добавить новый город..." />
+          <div id="add_city_button_click" class="button_delete"><div><b>+</b></div></div>
         </div>
       </div>
 
@@ -115,14 +152,16 @@
 
         <ul class="weather__list_cards flex_between">
 
-          <li class="weather__card">
+          <!-- <li class="weather__card">
             <div class="card__header flex_between">
-              <h3>City name</h3>
+              <h3>Москва</h3>
               <div class="card__weather_temp">
                 <img src="img/weather_card_icon.png"/>
                 <text>temp</text>
               </div>
-              <div class="button_delete">x</div>
+              <div class="button_delete">
+                <div>x</div>
+              </div>
             </div>
             <div class="card__body">
               <ul class="card__params">
@@ -156,12 +195,14 @@
           </li>
           <li class="weather__card">
             <div class="card__header flex_between">
-              <h3>City name</h3>
+              <h3>Дублин</h3>
               <div class="card__weather_temp">
                 <img src="img/weather_card_icon.png"/>
                 <text>temp</text>
               </div>
-              <div class="button_delete">x</div>
+              <div class="button_delete">
+                <div>x</div>
+              </div>
             </div>
             <div class="card__body">
               <ul class="card__params">
@@ -195,12 +236,14 @@
           </li>
           <li class="weather__card">
             <div class="card__header flex_between">
-              <h3>City name</h3>
+              <h3>Токио</h3>
               <div class="card__weather_temp">
                 <img src="img/weather_card_icon.png"/>
                 <text>temp</text>
               </div>
-              <div class="button_delete">x</div>
+              <div class="button_delete">
+                <div>x</div>
+              </div>
             </div>
             <div class="card__body">
               <ul class="card__params">
@@ -231,7 +274,7 @@
                 </li>
               </ul>
             </div>
-          </li>
+          </li> -->
         </ul>
 
       </div>
