@@ -22,7 +22,19 @@ window.onload = function() {
   function set_delete_listener(card) {
     let delete_button = card.getElementsByClassName("button_delete")[0];
     delete_button.addEventListener("click", function(e){
-      e.path[2].remove();
+      if (e.path.length == 10){
+        let city = e.path[1].getElementsByTagName('h3')[0].textContent;
+        console.log('remove from storage city', city);
+        storage.remove_city(city);
+        e.path[2].remove();
+      }else if (e.path.length == 11){
+        let city = e.path[2].getElementsByTagName('h3')[0].textContent;
+        console.log('remove from storage city', city);
+        storage.remove_city(city);
+        e.path[3].remove();
+      }else{
+        console.log('what?')
+      }
     })
   }
 
@@ -53,6 +65,13 @@ window.onload = function() {
   let w_api = new WeatherAPI();
   let updater = new CardUpdater();
   let cards_mngr = new CardsManager();
+  let storage = new Storage();
+
+  let cities = storage.get_cities();
+  for (let i=0; i<cities.length; i++){
+    console.log('Create from storage', cities[i]);
+    add_city(cities[i]);
+  }
   cards = updater.get_cards();
 
   updater.set_loading_main_temperature(cards[0]);
@@ -65,6 +84,7 @@ window.onload = function() {
   .getElementById('add_city_button_click')
   .addEventListener("click", function() {
     let city = document.getElementById('add_city_input').value;
+    storage.add_city(city);
     add_city(city)
   })
   document
@@ -72,6 +92,7 @@ window.onload = function() {
   .addEventListener("keypress", function(e){
     if (e.key === 'Enter') {
       let city = document.getElementById('add_city_input').value;
+      storage.add_city(city);
       add_city(city);
     }
   });

@@ -131,14 +131,14 @@ function CardsManager() {
           '          <img src="img/weather_card_icon.png"/>' +
           '          <text>temp</text>' +
           '        </div>' +
-          '        <div class="button_delete">x</div>' +
+          '        <div class="button_delete"><div>x</div></div>' +
           '      </div>' +
           '      <div class="card__body">' +
           '        <ul class="card__params">'
     params = ['Ветер', 'Облачность', 'Давление', 'Влажность', 'Координаты'];
     for (i=0; i<5; i++){
       src = src + '          <li>' +
-                  '            <span>'+params[i]+'</span>' +
+                  '            <span><b>'+params[i]+'</b></span>' +
                   '            <span></span>' +
                   '            <img class="img__loading" src="img/loading.gif"/>' +
                   '          </li>'
@@ -153,11 +153,20 @@ function CardsManager() {
 
 function update_weather() {
   updater = new CardUpdater();
+  w_api = new WeatherAPI();
   cards = document.getElementsByClassName('weather__card');
 
   updater.set_loading_main_temperature(cards[0]);
   updater.set_loading_main_card(cards[1]);
   for (i=2; i<cards.length; i++){
-    updater.set_loading_regular_card(cards[i]);
+    let card = cards[i];
+    updater.set_loading_regular_card(card);
+    let city = card.getElementsByTagName('h3')[0].textContent;
+    w_api.get_by_city(city, function(weather){
+      updater.set_weather_regular_card(card, weather);
+    }, function(){
+
+      updater.set_attention_regular_card(card);
+    });
   }
 }
