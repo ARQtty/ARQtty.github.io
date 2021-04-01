@@ -40,6 +40,9 @@ window.onload = function() {
 
   function add_city(city){
     console.log('try add city '+ city);
+    if (city.length == ""){
+      return;
+    }
 
     if (cards_mngr.add_card(city)){
       w_api.get_by_city(city, function(weather){
