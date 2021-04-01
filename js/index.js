@@ -79,13 +79,20 @@ window.onload = function() {
   request_coords(coords_success, coords_rejected);
 
   // Add button listeners
+  document
+  .getElementsByClassName("update_all_button")[0]
+  .addEventListener("click", update_weather);
+  document
+  .getElementsByClassName("update_all_button")[1]
+  .addEventListener("click", update_weather);
   //// Add listen add city
   document
   .getElementById('add_city_button_click')
   .addEventListener("click", function() {
     let city = document.getElementById('add_city_input').value;
     storage.add_city(city);
-    add_city(city)
+    add_city(city);
+    document.getElementById('add_city_input').value = "";
   })
   document
   .getElementById('add_city_input')
@@ -94,6 +101,7 @@ window.onload = function() {
       let city = document.getElementById('add_city_input').value;
       storage.add_city(city);
       add_city(city);
+      document.getElementById('add_city_input').value = "";
     }
   });
   //// Add listen delete card
