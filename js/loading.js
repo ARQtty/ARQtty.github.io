@@ -169,4 +169,17 @@ function update_weather() {
       updater.set_attention_regular_card(card);
     });
   }
+  console.log('mm???', cards[0]);
+  let city = cards[0].getElementsByTagName('h3')[0].textContent;
+  w_api.get_by_city(city, function(weather){
+    updater.set_weather_main_temperature(cards[0], weather);
+  }, function(){
+    updater.set_attention_main_temperature(card);
+  });
+
+  w_api.get_by_city(city, function(weather){
+    updater.set_weather_main_card(cards[1], weather);
+  }, function(){
+    updater.set_attention_main_card(card);
+  });
 }
